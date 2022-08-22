@@ -108,7 +108,7 @@ local function Distribute()
 			C1P.Y + index*incY*yM,
 			C1P.Z + index*incZ*zM
 
-		obj:PivotTo(CFrame.new(X, Y, Z))
+		obj:PivotTo(CFrame.new(X, Y, Z) * obj.CFrame.Rotation)
 			
 		--end
 		
