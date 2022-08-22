@@ -98,19 +98,19 @@ local function Distribute()
 		-- Calculates new positions for all axis
 		if obj:IsA("Model") then
 			
-			--resetPivot(obj)
-			
-			--else
 		end
 			
 		local X,Y,Z = 
 			C1P.X + index*incX*xM,
 			C1P.Y + index*incY*yM,
 			C1P.Z + index*incZ*zM
-
-		obj:PivotTo(CFrame.new(X, Y, Z) * obj.CFrame.Rotation)
-			
-		--end
+		
+		if obj:IsA("Model") then
+			obj:PivotTo(CFrame.new(X, Y, Z))
+		else
+			obj:PivotTo(CFrame.new(X, Y, Z) * obj.CFrame.Rotation)
+		end
+		
 		
 	end
 	ChangeHistoryService:SetWaypoint("DistributeParts - Distributing")	
